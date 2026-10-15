@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f2ec" />
+  <meta name="description" content="Explorá las temporadas y calificaciones de cualquier serie de TVMaze en un atlas visual." />
+  <title>Atlas de Episodios · TVMaze</title>
+  <link rel="stylesheet" href="./index.css" />
+  <script type="module" src="./index.js"></script>
+</head>
+<body>
+  <main class="content">
+    <div class="page-frame">
+      <nav class="masthead" aria-label="Navegación principal">
+        <a class="brand" href="./" aria-label="Atlas de Episodios, volver al inicio">
+          <span class="brand-symbol" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span>ATLAS<span class="brand-dot">.</span><small>EPISODE INDEX</small></span>
+        </a>
+        <div class="masthead-label"><span class="signal" aria-hidden="true"></span> EXPLORE THE DATA <span class="slash">/</span> TVMAZE API</div>
+      </nav>
+
+      <section class="intro" aria-label="Buscador de series">
+        <div class="intro-copy">
+          <span class="kicker">01 — BUSCADOR DE SERIES</span>
+          <h1>Las series,<br /><em>en perspectiva.</em></h1>
+          <p>Un mapa visual de episodios, temporadas y valoraciones. Buscá una serie por su ID y explorá sus puntuaciones de un vistazo.</p>
+        </div>
+        <form id="show-form" class="search-form">
+          <label for="show-id">IDENTIFICADOR DE LA SERIE</label>
+          <div class="search-control">
+            <input id="show-id" type="number" min="1" step="1" inputmode="numeric" required placeholder="Ej. 2993" />
+            <button type="submit">Explorar <span aria-hidden="true">↗</span></button>
+          </div>
+          <small>Probá con el ID 2993 para comenzar.</small>
+        </form>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite">Buscando información en TVMaze…</p>
+
+      <header class="show-header" aria-label="Información de la serie"></header>
+
+      <section class="episodes-wrapper" aria-labelledby="episodes-title">
+        <div class="section-head">
+          <div>
+            <span class="kicker">02 — MAPA DE EPISODIOS</span>
+            <h2 id="episodes-title">Termómetro de temporadas<span class="heading-star" aria-hidden="true">✳</span></h2>
+            <p>Un bloque = un episodio. Cada color corresponde a su puntuación promedio.</p>
+          </div>
+          <div class="section-mark" aria-hidden="true">S / E</div>
+        </div>
+        <div class="legend" aria-label="Leyenda de valoraciones">
+          <span class="legend-title">ESCALA / 0—10</span>
+          <span class="legend-item"><i class="legend-swatch legend-bad"></i> 0–5 Baja</span>
+          <span class="legend-item"><i class="legend-swatch legend-medium"></i> 6–7 Media</span>
+          <span class="legend-item"><i class="legend-swatch legend-good"></i> 8–10 Alta</span>
+          <span class="legend-item"><i class="legend-swatch legend-none"></i> Sin datos</span>
+        </div>
+        <article class="episodes" aria-live="polite"></article>
+        <p class="episode-note">Pasá el cursor sobre un episodio para consultar su puntuación exacta.</p>
+      </section>
+
+      <footer class="footer">
+        <div><span class="footer-symbol">✳</span> ATLAS DE EPISODIOS <span class="footer-muted">/ PROYECTO ACADÉMICO</span></div>
+        <p>Datos de la <a href="https://www.tvmaze.com/api" target="_blank" rel="noopener noreferrer">API pública de TVMaze <span aria-hidden="true">↗</span></a></p>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
